@@ -9,13 +9,16 @@ class Frame(wx.Frame):
 class App(wx.App):
 
     def OnInit(self):
+        print "OnInit"
         image = wx.Image('a.jpg', wx.BITMAP_TYPE_JPEG)
         self.frame = Frame(image)
         self.frame.Show()
         self.SetTopWindow(self.frame)
         return True
+    def OnExit(self):
+        print "OnExit"
 def main():
-    app = App()
+    app = App(True,'output')
     app.MainLoop()
 
 if __name__=='__main__':
